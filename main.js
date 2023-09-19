@@ -1,9 +1,9 @@
 // Función que solicita datos personales y calcula el crédito
+
 function solicitarCredito() {
-    
-    for (;;) { 
+    for (;;) {
         // Solicitar datos personales
-        let nombre = prompt('Por favor, introduce tu nombre:');
+        let nombre = prompt('Bienvenido a F.G. Servicios Financieros.Por favor, introduce tu nombre:');
         let apellido = prompt('Por favor, introduce tu apellido:');
         let edad = prompt('Por favor, introduce tu edad:');
         let sueldoBrutoPromedio = parseFloat(prompt('Por favor, introduce tu sueldo bruto promedio:'));
@@ -18,21 +18,15 @@ function solicitarCredito() {
         }
 
         // Verificar si la edad es mayor de 18 años
+
         if (edad !== null && !isNaN(edad) && parseInt(edad) >= 18) {
-            // Calcular tasa de interés anual (150%)
             let tasaAnual = 1.5;
-
-            // Solicitar plazo del préstamo
             let plazo = parseInt(prompt('Selecciona el plazo del préstamo (24, 36 o 48 meses):'));
-
-            // Verificar el plazo ingresado
             if (plazo === 24 || plazo === 36 || plazo === 48) {
-                
                 let tasaMensual = tasaAnual / 12;
                 let cuotaMensual = (importeMaximo * tasaMensual) / (1 - Math.pow(1 + tasaMensual, -plazo));
                 let total = cuotaMensual * plazo;
 
-              
                 let mensaje = '¡Hola, ' + nombre + ' ' + apellido + '! Tu solicitud de crédito ha sido aprobada.\n';
                 mensaje += 'Monto máximo que puedes solicitar: $' + importeMaximo.toFixed(2) + '\n';
                 mensaje += 'Plazo del préstamo: ' + plazo + ' meses\n';
@@ -44,7 +38,7 @@ function solicitarCredito() {
                 let respuesta = prompt('¿Deseas solicitar otro crédito? (Sí/No)').toLowerCase();
                 if (respuesta !== 'si') {
                     alert("Gracias por su consulta!,vuelva pronto")
-                    break; // Salir del ciclo si la respuesta no es 'si'
+                    break; 
                 }
 
             } else {
@@ -55,3 +49,5 @@ function solicitarCredito() {
         }
     }
 }
+
+solicitarCredito();
